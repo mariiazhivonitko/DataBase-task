@@ -2,7 +2,7 @@
 
 function createDbConnection()
 {
-    $ini = parse_ini_file("myconf.ini");
+    $ini = parse_ini_file("config.ini");
 
     $host = $ini["host"];
     $db = $ini["db"];
@@ -14,7 +14,8 @@ function createDbConnection()
         $dbcon = new PDO("mysql:host=$host;dbname=$db", $username, $pw);
         
         echo "Connected!";
-        //return $dbcon;
+        return $dbcon;
+        
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
