@@ -2,7 +2,7 @@
 require "dbconnection.php";
 $dbcon = createDbConnection();
 
-$artist_id=1;
+$artist_id=2;
 
 $sql = "SELECT Name FROM artists WHERE ArtistID=$artist_id";
 $statement = $dbcon->prepare($sql);
@@ -10,7 +10,7 @@ $statement -> execute();
 $artist=$statement;
 
 
-$sql="SELECT Title
+/* $sql="SELECT Title
 FROM albums
 WHERE ArtistID=$artist_id";
 $statement = $dbcon->prepare($sql);
@@ -23,11 +23,13 @@ WHERE albums.AlbumId = tracks.AlbumId AND Title IN $title";
 $statement = $dbcon->prepare($sql);
 $statement -> execute();
 $tracks=$statement;
-
+ */
 /* $albums = array("title"=> $title, "tracks"=> $tracks);
 
-$response = array("artist"=>$artist, "albums"=>$albums);
+$response = array("artist"=>$artist, "albums"=>$albums); */
+
+$response = array("artist"=>$artist);
 
 $json = json_encode($response);
 header('Content-type: application/json');
-echo $json; */
+echo $json;
