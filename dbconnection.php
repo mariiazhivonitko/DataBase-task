@@ -13,6 +13,7 @@ function createDbConnection()
     try {
         $dbcon = new PDO("mysql:host=$host;dbname=$db", $username, $pw);
         return $dbcon;
+        echo "hei";
         
     } catch (PDOException $e) {
         echo $e->getMessage();
