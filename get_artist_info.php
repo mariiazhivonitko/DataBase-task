@@ -19,15 +19,15 @@ $title=$statement;
 
 $sql="SELECT Name
 FROM tracks, albums
-WHERE albums.AlbumId = tracks.AlbumId AND Title=$title";
+WHERE albums.AlbumId = tracks.AlbumId AND Title IN $title";
 $statement = $dbcon->prepare($sql);
 $statement -> execute();
 $tracks=$statement;
 
-$albums = array("title"=> $title, "tracks"=> $tracks);
+/* $albums = array("title"=> $title, "tracks"=> $tracks);
 
 $response = array("artist"=>$artist, "albums"=>$albums);
 
 $json = json_encode($response);
 header('Content-type: application/json');
-echo $json;
+echo $json; */
