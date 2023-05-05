@@ -2,7 +2,7 @@
 require "dbconnection.php";
 $dbcon = createDbConnection();
 
-$artist_id = 1;
+$artist_id = 6;
 
 try {
     $dbcon->beginTransaction();
