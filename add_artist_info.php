@@ -10,8 +10,12 @@ $dbcon = createDbConnection();
 $body = file_get_contents("php://input");
 $data = json_decode($body);
 
+$artistId = strip_tags($data->ArtistId);
 $artist = strip_tags($data->Name);
-$album = strip_tags($data->Title);
+//$album = strip_tags($data->Title);
 
 
 $sql = "INSERT INTO artists (ArtistId, Name) VALUES (?,?)";
+
+$statement = $dbcon -> prepare($sql);
+$statement->execute(array($artistId, $artist));
