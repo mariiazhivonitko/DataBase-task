@@ -2,7 +2,7 @@
 require "dbconnection.php";
 $dbcon = createDbConnection();
 
-$artist_id=7;
+$artist_id=80;
 
 $sql = "SELECT Name FROM artists WHERE ArtistID=$artist_id";
 $statement = $dbcon->prepare($sql);

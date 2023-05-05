@@ -19,3 +19,19 @@ $sql = "INSERT INTO artists (ArtistId, Name) VALUES (?,?)";
 
 $statement = $dbcon -> prepare($sql);
 $statement->execute(array($artistId, $artist));
+
+
+
+$sql = "INSERT INTO albums (AlbumId, Title, ArtistId) VALUES (?,?,?)";
+
+$albums = $data->Albums;
+
+foreach($albums as $album){
+    $albumId = strip_tags($album->AlbumId);
+    $title = strip_tags($album->Title);
+    $statement = $dbcon -> prepare($sql);
+    $statement->execute(array($albumId, $title, $artistId));
+}
+
+
+
